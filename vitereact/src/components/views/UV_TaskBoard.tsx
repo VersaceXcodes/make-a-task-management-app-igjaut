@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { useAppStore } from "@/store/main";
+import { use_app_store } from "@/store/main";
 
 // Define interfaces based on the provided data map
 interface TaskItem {
@@ -28,7 +28,7 @@ interface DragState {
 
 const UV_TaskBoard: React.FC = () => {
   // Get authentication token from global state
-  const token = useAppStore((state) => state.auth_state.token);
+  const token = use_app_store((state) => state.auth.token);
 
   // Local state for board tasks and drag state
   const [boardTasks, setBoardTasks] = useState<BoardTasks>({
