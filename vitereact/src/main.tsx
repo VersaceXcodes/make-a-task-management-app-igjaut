@@ -1,11 +1,14 @@
 import { createRoot } from "react-dom/client";
-import AppWrapper from "./AppWrapper.tsx";
+import App from "./App";
+import { Provider } from 'react-redux';
+import store from './store/main';
 import "./index.css";
 import "./styles/task-manager.css";
-import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "./components/ui/toaster";
 
 createRoot(document.getElementById("root")!).render(
-	<BrowserRouter>
-		<AppWrapper />
-	</BrowserRouter>,
+  <Provider store={store}>
+    <App />
+    <Toaster />
+  </Provider>
 );
